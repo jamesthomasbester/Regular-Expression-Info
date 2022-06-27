@@ -28,13 +28,37 @@
                 <span class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item">Action</a></li>
-                <li><a class="dropdown-item" href="#">other option</a></li>
-                <li><a class="dropdown-item" href="#">alpha-numeric only</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">stuff</a></li>
-            </ul>
-            <p id="output">test</p>
+                <li><a class="dropdown-item" id="arraySyntax">Array syntax</a></li>
+                <li><a class="dropdown-item" id="alpha">Alpha only</a></li>
+                <li><a class="dropdown-item" id="alphaNum">Alpha-numeric only</a></li>
+                <li><a class="dropdown-item" id="whitespace">Whitespace removed</a></li>
+                <li><a class="dropdown-item" id="moreThan">Greater than 5</a></li>
+            </ul>      
+        </div>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                    <button class="accordion-button" id="syntax" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                        
+                    </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                  <div class="accordion-body" id="output">
+                  </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                  <button class="accordion-button collapsed" id="title" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    
+                  </button>
+                </h2>
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingTwo">
+                  <div class="accordion-body">
+                    
+                  </div>
+                </div>
+              </div>
         </div>
     </main>
 </body>
