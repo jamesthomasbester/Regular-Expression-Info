@@ -16,25 +16,25 @@ action.addEventListener('click', (e) =>{
     let input = document.getElementById('input').value;
     switch(lastOption){
         case 'alpha':
-            document.getElementById('output').textContent = input.match(/[a-zA-Z]/g);
+            document.getElementById('output').textContent = input.match(/[a-zA-Z]/g).join('');
             document.getElementById('syntax').textContent = '/[a-zA-Z]/g';
-            document.getElementById('title').textContent = "Matching Alphabetical characters only";
+            document.getElementById('title').textContent = "Matches Alphabetical characters between a - z upper or lower case";
             break;
         case 'alphaNum':
-            document.getElementById('output').textContent = input.match(/[a-zA-Z0-9]/g);
+            document.getElementById('output').textContent = input.match(/[a-zA-Z0-9]/g).join('');
             document.getElementById('syntax').textContent = '/[a-zA-Z0-9]/g';
-            document.getElementById('title').textContent = "Matching Alphabetical or numerical characters only";
+            document.getElementById('title').textContent = "Matches Alphabetical characters between a - z upper or lower case and any numerical characters between 0 - 9";
             break;
         case 'whitespace':
-            document.getElementById('output').textContent = input.match(/\S+/);
-            document.getElementById('syntax').textContent = '/\S+/';
-            document.getElementById('title').textContent = "Matching Greater than 5";
+            document.getElementById('output').textContent = input.match(/[.]\1/g).join('');
+            document.getElementById('syntax').textContent = `/[.]\\s/`;
+            document.getElementById('title').textContent = "Matches the first charact  ";
             break;
         case 'arraySyntax':
             break;
         case 'moreThan':
-            document.getElementById('output').textContent = input.match(/a{5,}/g);
-            document.getElementById('syntax').textContent = '/a{3,}/g';
+            document.getElementById('output').textContent = input.match(/\w{5}/g).join('');
+            document.getElementById('syntax').textContent = '/\\\w{5}/g';
             document.getElementById('title').textContent = "Matching Greater than 5";
             break;
         default:
