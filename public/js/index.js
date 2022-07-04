@@ -26,15 +26,18 @@ action.addEventListener('click', (e) =>{
             document.getElementById('title').textContent = "Matches Alphabetical characters between a - z upper or lower case and any numerical characters between 0 - 9";
             break;
         case 'whitespace':
-            document.getElementById('output').textContent = input.match(/[.]\1/g).join('');
-            document.getElementById('syntax').textContent = `/[.]\\s/`;
-            document.getElementById('title').textContent = "Matches the first charact  ";
+            document.getElementById('output').textContent = input.replace(/[\W]/g, `','`);
+            document.getElementById('syntax').textContent = `/[\W]/g`;
+            document.getElementById('title').textContent = "filtering for non-words to convert into array syntax";
             break;
         case 'arraySyntax':
+            document.getElementById('output').textContent = input.replace(/[\W]/g, `','`);
+            document.getElementById('syntax').textContent = `/[\W]/g`;
+            document.getElementById('title').textContent = "filtering for non-words to convert into array syntax";
             break;
         case 'moreThan':
-            document.getElementById('output').textContent = input.match(/\w{5}/g).join('');
-            document.getElementById('syntax').textContent = '/\\\w{5}/g';
+            document.getElementById('output').textContent = input.match(/\w{5,}/g).join(' ');
+            document.getElementById('syntax').textContent = '/\\\w{5,}/g';
             document.getElementById('title').textContent = "Matching Greater than 5";
             break;
         default:
