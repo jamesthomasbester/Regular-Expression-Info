@@ -26,7 +26,7 @@ action.addEventListener('click', (e) =>{
             document.getElementById('title').textContent = "Matches Alphabetical characters between a - z upper or lower case and any numerical characters between 0 - 9";
             break;
         case 'whitespace':
-            document.getElementById('output').textContent = input.replace(/[\W]/g, `','`);
+            document.getElementById('output').textContent = input.replace(/[a-zA-Z]/w/g);
             document.getElementById('syntax').textContent = `/[\W]/g`;
             document.getElementById('title').textContent = "filtering for non-words to convert into array syntax";
             break;
