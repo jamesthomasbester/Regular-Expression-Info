@@ -16,8 +16,8 @@
             <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Regular expressions are used in search engines, in search and replace dialogs of word processors and text editors, in text processing utilities such as sed and AWK, and in lexical analysis. Most general-purpose programming languages support regex capabilities either natively or via libraries, including for example Python, C, C++, Java, and JavaScript.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Try Regex Examples</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Documentation</button>
+                <button type="button" href="#trynow" class="btn btn-primary btn-lg px-4 gap-3">Try Regex Examples</button>
+                <button type="button" href="#docu" class="btn btn-outline-secondary btn-lg px-4">Documentation</button>
             </div>
             </div>
         </div>
@@ -25,14 +25,14 @@
             <input type="text" id="input" class="form-control" aria-label="Text input with segmented dropdown button">
             <button  id="submit" type="button" class="btn btn-outline-secondary">Action</button>
             <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                <span class="visually-hidden">Toggle Dropdown</span>
+                <span id="trynow" class="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" id="arraySyntax">Array syntax</a></li>
-                <li><a class="dropdown-item" id="alpha">Alpha only</a></li>
-                <li><a class="dropdown-item" id="alphaNum">Alpha-numeric only</a></li>
-                <li><a class="dropdown-item" id="whitespace">Whitespace included</a></li>
-                <li><a class="dropdown-item" id="moreThan">Greater than 5</a></li>
+                <li><a class="dropdown-item" id="char">Character class </a></li>
+                <li><a class="dropdown-item" id="asse">Assertions</a></li>
+                <li><a class="dropdown-item" id="grou">Group and Ranges</a></li>
+                <li><a class="dropdown-item" id="quan">Quantifers</a></li>
+                <li><a class="dropdown-item" id="unic">Unicode Property Escapes</a></li>
             </ul>      
         </div>
         <div class="accordion" id="accordionExample">
@@ -55,63 +55,82 @@
                 </h2>
         </div>
         <div style="margin-top: 8rem;" class="text-center">
-            <h2>Documentation</h2>
+            <h2 id="docu">Documentation</h2>
             <ul>
-                <li>
-                    <a class="btn btn-dark bt-primary " href="#Character">Character Classes</a>
+                <li class="d-grid" style="margin-right: 2rem;">
+                    <a class="btn btn-lg bt-primary " href="#Character">Character Classes</a>
                 </li>
-                <li>
-                    <a href="#Assertions">Assertions</a>
+                <li class="d-grid" style="margin-right: 2rem;">
+                    <a class="btn btn-lg bt-primary " href="#Assertions">Assertions</a>
                 </li>
-                <li>
-                    <a href="#Ranges">Group and Ranges</a>
+                <li class="d-grid" style="margin-right: 2rem;">
+                    <a class="btn btn-lg bt-primary " href="#Ranges">Group and Ranges</a>
                 </li>
-                <li>
-                    <a href="#Quantifers">Quantifers</a>
+                <li class="d-grid" style="margin-right: 2rem;">
+                    <a class="btn btn-lg bt-primary " href="#Quantifers">Quantifers</a>
                 </li>
-                <li>
-                    <a href="#Unicode">Unicode Property Escapes</a>
+                <li class="d-grid" style="margin-right: 2rem;">
+                    <a class="btn btn-lg bt-primary " href="#Unicode">Unicode Property Escapes</a>
                 </li>
             </ul>
         </div>
         <div>
-            <div>
+            <div class="justify-content-sm-center text-center">
                 <h3 id="Character" style="margin-top: 4rem;" class="text-center">Character Classes</h3>
                 <p class="d-grid gap-2 accordion-item bg-light d-sm-flex justify-content-sm-center text-center">
                     \, ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
                 </p>
                 <p class="text-center">Character Classes allow you to select specific Characters</p>
+                <button class="btn btn-dark">Give it a try</button>
             </div>
-            <div>
+            <div class="justify-content-sm-center text-center">
                 <h3 id="Assertions" style="margin-top: 4rem;" class="text-center">Assertions</h3>
                 <p class="d-grid accordion-item gap-2 bg-light d-sm-flex justify-content-sm-center text-center">
                     ^, $, x(?=y), x(?!y), (?<=y)x, (?<!y)x, \b, \B
                 </p>
                 <p class="text-center">Character Classes allow you to select specific Characters</p>
+                <button class="btn btn-dark">Give it a try</button>
             </div>
-            <div>
+            <div class="justify-content-sm-center text-center">
                 <h3 id="Ranges" style="margin-top: 4rem;" class="text-center">Groups and Ranges</h3>
                 <p class="d-grid gap-2 accordion-item bg-light d-sm-flex justify-content-sm-center text-center">
                     (x), (?:x), (?< Name >x), x|y, [xyz], [^xyz], \Number
                 </p>
-                <p class="text-center">Character Classes allow you to select specific Characters</p>
+                <p class="text-center">Groups group multiple patterns as a whole, and capturing groups provide extra submatch information when using a regular expression pattern to match against a string. Backreferences refer to a previously captured group in the same regular expression.</p>
+                <button class="btn btn-dark">Give it a try</button>
             </div>
-            <div>
+            <div class="justify-content-sm-center text-center">
                 <h3 id="Quantifers" style="margin-top: 4rem;" class="text-center">Quantifers</h3>
                 <p class="d-grid gap-2 accordion-item bg-light d-sm-flex justify-content-sm-center text-center">
                     *, +, ?, x{n}, x{n,}, x{n,m}
                 </p>
-                <p class="text-center">Character Classes allow you to select specific Characters</p>
+                <p class="text-center">Quantifiers indicate numbers of characters or expressions to match.</p>
+                <button class="btn btn-dark">Give it a try</button>
             </div>
-            <div>
-                <h3 id="Unicode" style="margin-top: 4rem;" class="text-center">Unicode Porperty Escapes</h3>
+            <div class="justify-content-sm-center text-center">
+                <h3 id="Unicode" style="margin-top: 4rem;" class="text-center">Unicode Property Escapes</h3>
                 <p class="d-grid gap-2 accordion-item bg-light d-sm-flex justify-content-sm-center text-center">
                     \p{UnicodeProperty}, \P{UnicodeProperty}
                 </p>
-                <p class="text-center">Character Classes allow you to select specific Characters</p>
+                <p class="text-center">Unicode property escapes Regular Expressions allows for matching characters based on their Unicode properties. A character is described by several properties which are either binary ("boolean-like") or non-binary. For instance, unicode property escapes can be used to match emojis, punctuations, letters (even letters from specific languages or scripts), etc.</p>
+                <button class="btn btn-dark">Give it a try</button>
             </div>
         </div>
     </main>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+            <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+          </a>
+          <span class="mb-3 mb-md-0 text-muted">© 2022 James Bester</span>
+        </div>
+    
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+          <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+          <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+        </ul>
+      </footer>
 </body>
 <script src="./js/index.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>

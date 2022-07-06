@@ -1,44 +1,44 @@
 const action = document.getElementById('submit')
-const alphaNum = document.getElementById('alphaNum');
-const alpha = document.getElementById('alpha');
-const whitespace = document.getElementById('whitespace');
-const arraySyntax = document.getElementById('arraySyntax');
-const moreThan = document.getElementById('moreThan');
+const char = document.getElementById('char');
+const asse = document.getElementById('asse');
+const grou = document.getElementById('grou');
+const quan = document.getElementById('quan');
+const unic = document.getElementById('unic');
 var lastOption;
 
-alphaNum.addEventListener('click', () => lastOption = "alphaNum")
-alpha.addEventListener('click', () => lastOption = "alpha");
-whitespace.addEventListener('click', () => lastOption = "whitespace");
-arraySyntax.addEventListener('click', () => lastOption = "arraySyntax");
-moreThan.addEventListener('click', () => lastOption = "moreThan");
+char.addEventListener('click', () => lastOption = "char")
+asse.addEventListener('click', () => lastOption = "asse");
+grou.addEventListener('click', () => lastOption = "grou");
+quan.addEventListener('click', () => lastOption = "quan");
+unic.addEventListener('click', () => lastOption = "unic");
 
 action.addEventListener('click', (e) =>{
     let input = document.getElementById('input').value;
     switch(lastOption){
-        case 'alpha':
-            document.getElementById('output').textContent = input.match(/[a-zA-Z]/g).join('');
-            document.getElementById('syntax').textContent = '/[a-zA-Z]/g';
+        case 'char':
+            document.getElementById('output').textContent = input.match(/ab+c/g).join('');
+            document.getElementById('syntax').textContent = '/ab+c/g';
             document.getElementById('title').textContent = "Matches Alphabetical characters between a - z upper or lower case";
             break;
-        case 'alphaNum':
-            document.getElementById('output').textContent = input.match(/[a-zA-Z0-9]/g).join('');
-            document.getElementById('syntax').textContent = '/[a-zA-Z0-9]/g';
+        case 'asse':
+            document.getElementById('output').textContent = input.match(/\w+$/g).join('');
+            document.getElementById('syntax').textContent = '/\w+$/g';
             document.getElementById('title').textContent = "Matches Alphabetical characters between a - z upper or lower case and any numerical characters between 0 - 9";
             break;
-        case 'whitespace':
-            document.getElementById('output').textContent = input.replace(/[a-zA-Z]/w/g);
-            document.getElementById('syntax').textContent = `/[\W]/g`;
+        case 'grou':
+            document.getElementById('output').textContent = input.replace(/\b[a-df-z]+\b/ig);
+            document.getElementById('syntax').textContent = `/\b[a-df-z]+\b/ig`;
             document.getElementById('title').textContent = "filtering for non-words to convert into array syntax";
             break;
-        case 'arraySyntax':
-            document.getElementById('output').textContent = input.replace(/[\W]/g, `','`);
-            document.getElementById('syntax').textContent = `/[\W]/g`;
+        case 'quan':
+            document.getElementById('output').textContent = input.match(/\b\w{2,6}\b/g);
+            document.getElementById('syntax').textContent = `/\b\w{2,6}\b/g`;
             document.getElementById('title').textContent = "filtering for non-words to convert into array syntax";
             break;
-        case 'moreThan':
-            document.getElementById('output').textContent = input.match(/\w{5,}/g).join(' ');
-            document.getElementById('syntax').textContent = '/\\\w{5,}/g';
-            document.getElementById('title').textContent = "Matching Greater than 5";
+        case 'unic':
+            document.getElementById('output').textContent = input.match(/\p{Emoji_Presentation}/gu);
+            document.getElementById('syntax').textContent = '/\p{Emoji_Presentation}/gu';
+            document.getElementById('title').textContent = "Matches only Emoji's, The return string will only contain Emoji's";
             break;
         default:
             break;
