@@ -1,44 +1,41 @@
 const action = document.getElementById('submit')
-const char = document.getElementById('char');
-const asse = document.getElementById('asse');
-const grou = document.getElementById('grou');
-const quan = document.getElementById('quan');
-const unic = document.getElementById('unic');
+
 var lastOption;
 
-char.addEventListener('click', () => lastOption = "char")
-asse.addEventListener('click', () => lastOption = "asse");
-grou.addEventListener('click', () => lastOption = "grou");
-quan.addEventListener('click', () => lastOption = "quan");
-unic.addEventListener('click', () => lastOption = "unic");
+document.getElementById('gototest').addEventListener('click', () => {window.location = "#input"})
+document.getElementById('gotodocu').addEventListener('click', () => {window.location = "#docu"})
+document.getElementById('char').addEventListener('click', () => { document.getElementById('title').textContent = "Matches any vowes either uppercase or lowercase in the input string"; lastOption = "char" })
+document.getElementById('asse').addEventListener('click', () => { document.getElementById('title').textContent = "filtering for only last word in the input string"; lastOption = "asse" });
+document.getElementById('grou').addEventListener('click', () => { document.getElementById('title').textContent = "will filter for characters inbetween any single or double quotes"; lastOption = "grou" });
+document.getElementById('quan').addEventListener('click', () => { document.getElementById('title').textContent = "filtering for any words/groups that are between 4-6 characters long "; lastOption = "quan" });
+document.getElementById('unic').addEventListener('click', () => { document.getElementById('title').textContent = "Matches only Emoji's, The return string will only contain Emoji's"; lastOption = "unic" });
+document.getElementById('setClass').addEventListener('click', () => { window.location = '#input'; lastOption = "char" })
+document.getElementById('setAssert').addEventListener('click', () => { window.location = '#input'; lastOption = "asse"})
+document.getElementById('setGroup').addEventListener('click', () => { window.location = '#input'; lastOption = "grou"})
+document.getElementById('setQuant').addEventListener('click', () => { window.location = '#input'; lastOption = "quan"})
+document.getElementById('setUni').addEventListener('click', () => { window.location = '#input'; lastOption = "unic"})
 
 action.addEventListener('click', (e) =>{
     let input = document.getElementById('input').value;
     switch(lastOption){
         case 'char':
-            document.getElementById('output').textContent = input.match(/ab+c/g).join('');
-            document.getElementById('syntax').textContent = '/ab+c/g';
-            document.getElementById('title').textContent = "Matches Alphabetical characters between a - z upper or lower case";
-            break;
+            document.getElementById('output').textContent = input.match(/[AEIOUYaeiouy]/g);
+            document.getElementById('syntax').textContent = '/[AEIOUYaeiouy]/g';
         case 'asse':
-            document.getElementById('output').textContent = input.match(/\w+$/g).join('');
-            document.getElementById('syntax').textContent = '/\w+$/g';
-            document.getElementById('title').textContent = "Matches Alphabetical characters between a - z upper or lower case and any numerical characters between 0 - 9";
+            document.getElementById('output').textContent = input.match(/\w+$/);
+            document.getElementById('syntax').textContent = `/\\w+$/`;
             break;
         case 'grou':
-            document.getElementById('output').textContent = input.replace(/\b[a-df-z]+\b/ig);
-            document.getElementById('syntax').textContent = `/\b[a-df-z]+\b/ig`;
-            document.getElementById('title').textContent = "filtering for non-words to convert into array syntax";
+            document.getElementById('output').textContent = input.match(/(['"]).*?\1/g);
+            document.getElementById('syntax').textContent = `/(['"]).*?\\1/g`;
             break;
         case 'quan':
-            document.getElementById('output').textContent = input.match(/\b\w{2,6}\b/g);
-            document.getElementById('syntax').textContent = `/\b\w{2,6}\b/g`;
-            document.getElementById('title').textContent = "filtering for non-words to convert into array syntax";
+            document.getElementById('output').textContent = input.match(/\b\w{4,6}\b/g);
+            document.getElementById('syntax').textContent = '/\\b\\w{4,6}\\b/g';
             break;
         case 'unic':
             document.getElementById('output').textContent = input.match(/\p{Emoji_Presentation}/gu);
-            document.getElementById('syntax').textContent = '/\p{Emoji_Presentation}/gu';
-            document.getElementById('title').textContent = "Matches only Emoji's, The return string will only contain Emoji's";
+            document.getElementById('syntax').textContent = '/\\p{Emoji_Presentation}/gu';
             break;
         default:
             break;

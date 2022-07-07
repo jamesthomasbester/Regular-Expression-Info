@@ -16,8 +16,8 @@
             <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">Regular expressions are used in search engines, in search and replace dialogs of word processors and text editors, in text processing utilities such as sed and AWK, and in lexical analysis. Most general-purpose programming languages support regex capabilities either natively or via libraries, including for example Python, C, C++, Java, and JavaScript.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button type="button" href="#trynow" class="btn btn-primary btn-lg px-4 gap-3">Try Regex Examples</button>
-                <button type="button" href="#docu" class="btn btn-outline-secondary btn-lg px-4">Documentation</button>
+                <button type="button" id="gototest" class="btn btn-primary btn-lg px-4 gap-3">Try Regex Examples</button>
+                <button type="button" id="gotodocu" class="btn btn-outline-secondary btn-lg px-4">Documentation</button>
             </div>
             </div>
         </div>
@@ -38,11 +38,11 @@
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                    <button class="accordion-button" id="syntax" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                    <button class="accordion-button collapsed" id="syntax" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                         
                     </button>
                 </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div id="panelsStayOpen-collapseOne" class="accordion-collapse" aria-labelledby="panelsStayOpen-headingOne">
                   <div class="accordion-body" id="output">
                   </div>
                 </div>
@@ -81,15 +81,15 @@
                     \, ., \cX, \d, \D, \f, \n, \r, \s, \S, \t, \v, \w, \W, \0, \xhh, \uhhhh, \uhhhhh, [\b]
                 </p>
                 <p class="text-center">Character Classes allow you to select specific Characters</p>
-                <button class="btn btn-dark">Give it a try</button>
+                <button id="setClass" class="btn btn-dark">Give it a try</button>
             </div>
             <div class="justify-content-sm-center text-center">
                 <h3 id="Assertions" style="margin-top: 4rem;" class="text-center">Assertions</h3>
                 <p class="d-grid accordion-item gap-2 bg-light d-sm-flex justify-content-sm-center text-center">
                     ^, $, x(?=y), x(?!y), (?<=y)x, (?<!y)x, \b, \B
                 </p>
-                <p class="text-center">Character Classes allow you to select specific Characters</p>
-                <button class="btn btn-dark">Give it a try</button>
+                <p class="text-center">Assertions include boundaries, which indicate the beginnings and endings of lines and words, and other patterns indicating in some way that a match is possible (including look-ahead, look-behind, and conditional expressions).</p>
+                <button id="setAssert" class="btn btn-dark">Give it a try</button>
             </div>
             <div class="justify-content-sm-center text-center">
                 <h3 id="Ranges" style="margin-top: 4rem;" class="text-center">Groups and Ranges</h3>
@@ -97,7 +97,7 @@
                     (x), (?:x), (?< Name >x), x|y, [xyz], [^xyz], \Number
                 </p>
                 <p class="text-center">Groups group multiple patterns as a whole, and capturing groups provide extra submatch information when using a regular expression pattern to match against a string. Backreferences refer to a previously captured group in the same regular expression.</p>
-                <button class="btn btn-dark">Give it a try</button>
+                <button id="setGroup" class="btn btn-dark">Give it a try</button>
             </div>
             <div class="justify-content-sm-center text-center">
                 <h3 id="Quantifers" style="margin-top: 4rem;" class="text-center">Quantifers</h3>
@@ -105,7 +105,7 @@
                     *, +, ?, x{n}, x{n,}, x{n,m}
                 </p>
                 <p class="text-center">Quantifiers indicate numbers of characters or expressions to match.</p>
-                <button class="btn btn-dark">Give it a try</button>
+                <button id="setQuant" class="btn btn-dark">Give it a try</button>
             </div>
             <div class="justify-content-sm-center text-center">
                 <h3 id="Unicode" style="margin-top: 4rem;" class="text-center">Unicode Property Escapes</h3>
@@ -113,9 +113,19 @@
                     \p{UnicodeProperty}, \P{UnicodeProperty}
                 </p>
                 <p class="text-center">Unicode property escapes Regular Expressions allows for matching characters based on their Unicode properties. A character is described by several properties which are either binary ("boolean-like") or non-binary. For instance, unicode property escapes can be used to match emojis, punctuations, letters (even letters from specific languages or scripts), etc.</p>
-                <button class="btn btn-dark">Give it a try</button>
+                <button id="setUni" class="btn btn-dark">Give it a try</button>
             </div>
         </div>
+        <div>
+            <h2>
+                Author details
+            </h2>
+            <p>
+                If you liked what you saw here you should checkout my github and see my other projects. \n
+                Currently studying web-development so many more new projects will be sure to hit my profile, so make sure you follow me. 
+            </p>
+            <a href="https://github.com/jamesthomasbester">Github</a>
+        </div>    
     </main>
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
@@ -124,11 +134,10 @@
           </a>
           <span class="mb-3 mb-md-0 text-muted">© 2022 James Bester</span>
         </div>
-    
         <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-          <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
-          <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
-          <li class="ms-3"><a class="text-muted" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://github.com/jamesthomasbester"><img src="github.png"></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://twitter.com/jamesbester1"><img src="twitter.png"></a></li>
+          <li class="ms-3"><a class="text-muted" href="https://www.linkedin.com/in/james-bester-49452a73/"><img src="linkedin.png"></a></li>
         </ul>
       </footer>
 </body>
